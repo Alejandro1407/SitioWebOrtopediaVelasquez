@@ -1,0 +1,61 @@
+﻿@model protesis
+
+@{ if (Model == null)
+    {
+        <br />
+        <img src="~/Content/img/Error.png" class="ml-auto mr-auto d-block" /><br />
+        <h4 class="d-flex justify-content-center text-muted">¡Oh No, Hubo un error al cargar los datos!</h4>
+        <br /><br /><br />
+        return;
+    }
+}
+<div class="modal fade " id="ConfirmAddToCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-notify text-dark" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h3 class="heading lead text-dark">Agregar al Carrito</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-dark">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row pt-2 Body_Modal" id="Carrito_Add">
+                    <div class="col-3">
+                        <p></p>
+                        <i class="fa fa-shopping-cart fa-4x"></i>
+                    </div>
+                    <div class="col-9 ">
+                        <h5 class="grey-text font-weight-bold">¿Esta Seguro que desea Añadir?</h5>
+                        <h5 class="h5-responsive badge badge-light container" >
+                            @Model.nombre <br />Descripcion: @Model.descripcion
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-success" id="AddToCart"><i class="fas fa-shopping-cart"></i>Comprar</button>
+                <button class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times-circle"></i> No, thanks</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            $('#ConfirmAddToCart').modal('show');
+            $('#AddToCart').on("click", function (e) {
+                var obj = {
+                    'id':@Model.id,
+                    'Nombre': '@Model.nombre',
+                    'Tipo': '@Model.tipoProtesis.nombre',
+                    'Descripcion':'@Model.descripcion',
+                    'Imagen':'@Convert.ToBase64String(Model.foto)'
+                };
+                localStorage.setItem("Current", JSON.stringify(obj));
+                console.log(obj);
+                AddtoCart();
+            });
+        });
+
+</script>

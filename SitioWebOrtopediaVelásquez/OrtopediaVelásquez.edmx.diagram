@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="43c2997acec74c9486966d40ba2b1d5e" Name="Diagram1">
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.administradores" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.consulta" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.horarios" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.medico" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.ortesis" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.paciente" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.protesis" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.sexo" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.su" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.tipoOrtesis" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrtopediaVelásquezModel.tipoProtesis" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__administr__idMed__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__administr__idSex__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__administra__idsu__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__consulta__idHora__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__consulta__idMedi__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__consulta__idOrte__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__consulta__idPaci__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__consulta__idProt__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__ortesis__tipo__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__paciente__idSexo__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="OrtopediaVelásquezModel.FK__protesis__tipo__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

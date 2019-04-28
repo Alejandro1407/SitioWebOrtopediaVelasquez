@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ActiveCatalogo = "active";
+    ViewBag.Style = "Style_Catalogo.css";
+    ViewBag.Script = "ScriptCatalogo.js";
+}
+<br /><br />
+<h1 class="text-dark font-weight-bold text-center ml-0 mr-auto d-block">Catálogo</h1>
+<br /><br />
+<div class="container d-flex bd-highlight pl-5 pr-5">
+
+    <select class="form-control custom-select m-0 w-auto bd-highlight mr-auto" id="Tipo">
+        <option value="1" selected>Protesis </option>
+        <option value="2" >Ortesis </option>
+    </select>
+
+    <div class="md-form mt-2 mb-0 bd-highlight">
+        <div class="inner-addon right-addon jus">
+            <i class="fas fa-search grey-text"></i>
+            <input type="text" id="txtBuscar" placeholder="Buscar por Nombre" class="w-auto mr-0 d-block" name="name" value="" />
+        </div>
+    </div>
+    <br />
+</div>
+<div class="mt-3" id="Data">
+    <img src="~/Content/img/Loading.gif" class="ml-auto mr-auto d-block"/>
+    <h4 class="d-flex justify-content-center text-muted">Cargando Productos</h4>
+    <!--Con JavaScript se cargara el catalogo-->
+</div>
+
+
+<div id="Modal">
+    <!--Para Desplegar los Modales-->
+</div>

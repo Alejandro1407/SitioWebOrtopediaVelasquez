@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('bootstrap.css');
+@import url('mdb.css');
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css");
+
+/* Generales */
+.ProductoImg {
+    width: 50%;
+}
+#Price {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #1F74BE;
+    font-family: Lato;
+}
+.custom-select {
+    display:block !important;
+}
+
+#Tipe {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.btn-container {
+    margin-top: 75px;
+}
+
+#Link {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 20px;
+}
+.badge {
+    white-space :normal !important;
+}
+.ArticuloDiv {
+    padding-bottom: 35px;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
+
+p {
+    font-family: Lato;
+}
+
+.btnDowload {
+    color: grey !important;
+}
+
+#CartDrop {
+    left: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 1000%;
+}
+
+p {
+    font-family: Lato;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
+
+#CartDrop::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+#CartDrop::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
+
+#BtnCerrarDropCart {
+    left: auto;
+    top: 2%;
+    right: 3%;
+}
+
+.bg-blue {
+    background-color: #114E7A;
+}
+
+.btn-blue_ {
+    color: #fff;
+    background-color: #114E7A;
+    border-color: #114E7A;
+}
+
+    .btn-blue_:hover {
+        background-color: rgb(17, 78, 122,0.925);
+    }
+
+#content {
+    margin-top: 75px;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+    .inner-addon .fas {
+        position: absolute;
+        padding: 10px;
+        /*pointer-events: none; Propiedad Mala para fas eye*/
+    }
+
+.left-addon .fas {
+    left: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon .fas {
+    right: 0px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-85 {
+    width: 87%;
+}
+
+.m-4_5 {
+    margin: 2.0rem !important;
+}
+
+.mr-2_5 {
+    margin-right: 0.7rem !important;
+}
+
+.FormValid {
+    color: green;
+}
+
+.FormInvalid {
+    color: red;
+}
+
+.fa-1_5 {
+    font-size: 2em;
+}
+
+.py-1_5 {
+    padding-top: 0.25rem !important;
+}
+
+.pl-4_5 {
+    padding-left: 2rem !important;
+}
+
+hr {
+    color: black;
+    background-color: black;
+    width: 80%;
+}
+
+.Font-Family-Lato {
+    font-family: Lato;
+}
+
+
+@media (min-width:0px) and (max-width:450px) { /* Chicharras */
+    .ProductoImgCart {
+        width: 100%;
+    }
+
+    #Price {
+        clear: both;
+        width: 100% !important;
+    }
+
+    #txtBuscar {
+        width: 75% !important;
+    }
+
+    .ProductoImg {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+}
+
+@media (min-width:450px) and (max-width:768px) { /* 1/2 y Tablets */
+    #CartDrop {
+        width: 75% !important;
+        padding-left: 5%;
+        right: 5%;
+    }
+
+    .ProductoImgCart {
+        width: 50% !important;
+        height: 100% !important;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    #CartDrop {
+        width: 75% !important;
+        padding-left: 5%;
+        right: 5%;
+    }
+
+    .ProductoImgCart {
+        width: 50% !important;
+        height: 100% !important;
+    }
+}
+
+@media (min-width:992px) { /* Pc */
+    #CartDrop {
+        width: 40% !important;
+        padding-left: 5%;
+        right: 10%;
+    }
+
+    .ProductoImgCart {
+        width: 50% !important;
+        height: 100% !important;
+    }
+}}
