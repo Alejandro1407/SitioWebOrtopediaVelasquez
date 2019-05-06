@@ -12,13 +12,15 @@ namespace SitioWebOrtopediaVelásquez.Servicios
             {
                 try
                 {
-                    var result = (from paciente in db.paciente
-                                  where paciente.email.Equals(email)
+                    var result = (from paciente in db.usuario
+                                  where paciente.email.Equals(email) && (paciente.tipoUsuario.Value.Equals(3) || paciente.tipoUsuario.Value.Equals(2))
                                   select paciente).ToList();
-                    if (result.Count() == 0) {
+                    if (result.Count() == 0)
+                    {
                         return true;
                     }
-                    else {
+                    else
+                    {
                         return false;
                     }
                 }
@@ -29,22 +31,25 @@ namespace SitioWebOrtopediaVelásquez.Servicios
 
             }
         }//Check Email
-        public bool RegistarPaciente(paciente p) {
-            using (OrtopediaVelásquezEntities db = new OrtopediaVelásquezEntities()) {
+        public bool RegistarPaciente(usuario p)
+        {
+            using (OrtopediaVelásquezEntities db = new OrtopediaVelásquezEntities())
+            {
                 try
                 {
-                    db.paciente.Add(p);
+                    db.usuario.Add(p);
                     db.SaveChanges();
                     return true;
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     return false;
                 }
 
             }
 
         }//RegistrarPaciente
-        
+
         public string ComprobarLogin(string email, string password)
         {
             using (OrtopediaVelásquezEntities db = new OrtopediaVelásquezEntities())
@@ -52,8 +57,8 @@ namespace SitioWebOrtopediaVelásquez.Servicios
                 LoginData loginData = new LoginData();
                 try
                 {
-                    var result = (from data in db.paciente
-                                  where data.email.Equals(email) && data.contrasenya.Equals(password)
+                    var result = (from data in db.usuario
+                                  where data.email.Equals(email) && data.contrasenya.Equals(password) && (data.tipoUsuario.Value.Equals(3) || data.tipoUsuario.Value.Equals(2))
                                   select data).ToList();
 
 
@@ -67,6 +72,8 @@ namespace SitioWebOrtopediaVelásquez.Servicios
                         loginData.ValidData = true;
                         loginData.Nombre = result[0].nombres;
                         loginData.Email = result[0].email;
+                        loginData.id = result[0].id;
+                        loginData.TipoUsuario = (int) result[0].tipoUsuario;
                         return JsonConvert.SerializeObject(loginData);
                     }
                 }
@@ -78,7 +85,7 @@ namespace SitioWebOrtopediaVelásquez.Servicios
 
             }
         }//ComprobarLogin
-        
+
     }//Clase
 }//NameSpace
 
@@ -87,4 +94,6 @@ public class LoginData
     public bool ValidData { get; set; }
     public string Nombre { get; set; }
     public string Email { get; set; }
+    public int id { get; set; }
+    public int TipoUsuario { get; set; }
 }

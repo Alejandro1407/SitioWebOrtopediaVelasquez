@@ -1,0 +1,35 @@
+﻿@model List<tipoProtesis>
+
+@if (Model == null)
+{
+    <br />
+    <img src="~/Content/img/Error.png" class="ml-auto mr-auto d-block" /><br />
+    <h4 class="d-flex justify-content-center text-muted">¡Oh No, Hubo un error al cargar los datos!</h4>
+    <br /><br /><br />
+    return;
+}
+@if (Model.Count == 0)
+{
+    <br />
+    <img src="~/Content/img/Empty.png" class="ml-auto mr-auto d-block" /><br />
+    <h4 class="d-flex justify-content-center text-muted">¡Oh No, El Catalogo esta Vacio!</h4>
+    <br /><br /><br />
+    return;
+}
+<div class="container mt-5 ml-auto mr-auto row d-flex justify-content-center">
+    @foreach (tipoProtesis x in Model)
+    {
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ArticuloDiv">
+            <div id="img" class="m-0 p-0">
+                <img src="data:image/png;base64,@Convert.ToBase64String(x.foto)" class="float-left img-fluid w-50 h-100"   />
+            </div>
+            <div id="Price" class="w-75">10% Off</div>
+            <br />
+            <p id="Tipe" class="ml-5 text-center m-0">@x.nombre</p>
+            <p class="text-muted text-center">@x.descripcion</p>
+            <div class="m-0 p-0 text-center mt-lg-5"><a href="#" id="Link">@x.nombre ></a></div>
+        </div>
+    }
+</div>
+
+

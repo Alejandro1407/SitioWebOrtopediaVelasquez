@@ -12,18 +12,16 @@ namespace SitioWebOrtopediaVelásquez
     using System;
     using System.Collections.Generic;
     
-    public partial class sexo
+    public partial class TipoUsuario
     {
-        public sexo()
+        public TipoUsuario()
         {
-            this.administradores = new HashSet<administradores>();
-            this.paciente = new HashSet<paciente>();
+            this.usuario = new HashSet<usuario>();
         }
     
         public int id { get; set; }
-        public string sexo1 { get; set; }
+        public string tipoUsuario1 { get; set; }
     
-        public virtual ICollection<administradores> administradores { get; set; }
-        public virtual ICollection<paciente> paciente { get; set; }
+        public virtual ICollection<usuario> usuario { get; set; }
     }
 }

@@ -6,11 +6,11 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/css/@ViewBag.Style" rel="stylesheet" />
 </head>
-<body>
+<body class="">
     <header class="mb-5">
         <nav class="navbar fixed-top float-left shadow-sm p-1 navbar-expand-lg navbar-light bg-white scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Sports Online</a>
+                <a class="navbar-brand" href="index.html">Ortopedia Velásquez</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item @ViewBag.ActiveIndex">
@@ -28,17 +28,7 @@
                 <div class="navbar-nav nav-flex-icons ml-auto" id="Sesion">
                 <!--Imprimira Menu si se inicio Sesion-->
                 </div>
-                <div class="dropdown-menu p-2 animated zoomIn faster" id="CartDrop">
-                    <button data-dismiss="dropdown" class="btn btn-white position-absolute ml-auto m-0 shadow-none p-0" id="BtnCerrarDropCart"><i class="fas fa-times"></i></button>
-                    <br />
-                    <div id="ShowCart">
-                        <div class="row pl-4 pt-3">
-                          <!--Se mostraran los productos del carrito-->
-                         </div>
-                      </div>
-                   </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -64,7 +54,7 @@
                         <div class="inner-addon right-addon">
                             <i class="fas fa-check-circle d-none FormValid" data-toggle="tooltip" data-placement="up" title="Email Valido" id="LogInFormEmailValid"></i>
                             <i class="fas fa-times-circle d-none FormInvalid" data-toggle="tooltip" data-placement="up" title="Email No Valido" id="LogInFormEmailInValid"></i>
-                            <input type="email" id="LogInFormEmail" class="form-control m-4_5 w-85" placeholder="Correo">
+                            <input type="email" id="LogInFormEmail" class="form-control m-4_5 w-85" placeholder="Correo" required>
                         </div>
                     </div>
 
@@ -75,7 +65,7 @@
                             <i class="fas fa-check-circle FormValid d-none" data-toggle="tooltip" data-placement="up" title="Cumple con el formato Indicado" id="LogInFormPassValid"></i>
                             <i class="fas fa-times-circle FormInvalid d-none" data-toggle="tooltip" data-placement="up" title="No Cumple con el formato ingresado" id="LogInFormPassInValid"></i>
                             <a class="fas fa-eye grey-text mr-4" id="ShowPassLogin"></a>
-                            <input type="password" id="LogInFormPassword" disabled class="form-control m-4_5 w-85" placeholder="Contraseña">
+                            <input type="password" id="LogInFormPassword" disabled class="form-control m-4_5 w-85" placeholder="Contraseña" required>
 
                         </div>
                     </div>
@@ -143,15 +133,14 @@
                     <div class="md-form mb-4">
                         <i class="fa fa-venus-mars prefix grey-text"></i>
                         <select class="custom-select form-control m-4_5 w-85" id="RegisterFormGenero">
-                            <option value="1" selected>Masculino</option>
-                            <option value="2">Femenino</option>
-                            <option value="3">Otro</option>
+                            <option value="M" selected>Masculino</option>
+                            <option value="F">Femenino</option>
                         </select>
                     </div>
 
                     <div class="md-form mb-4">
                         <i class="fa fa-birthday-cake prefix grey-text"></i>
-                        <input type="number" class="form-control-range custom-range m-4_5 w-85 validate" min="1" max="125" name="Edad" placeholder="Edad" id="RegisterFormGenero" />
+                        <input type="date" class="form-control-range custom-range m-4_5 w-85 validate" min="1" max="125" name="Edad" placeholder="Edad" id="RegisterFormEdad" />
                     </div>
                     <div class="md-form mt-0 ">
                         <i class="fas fa-comment prefix grey-text"></i>
@@ -272,7 +261,7 @@
         </footer>
     </div>
    
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/popper.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/mdb.js"></script>

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "PC  One -Tienda Online";
+    ViewBag.Title = "Ortopedia Velásquez - Home";
     ViewBag.ActiveIndex = "active";
     ViewBag.Style = "Style_Home.css";
     ViewBag.Script = "ScriptHome.js";
@@ -31,6 +31,22 @@
         <span class="text-dark"> <i class="fas text-dark fa-3x fa-arrow-circle-right"></i></span>
     </a>
 </div>
+<br /><br />
+<div class="container d-flex bd-highlight pl-5 pr-5">
+
+    <select class="form-control custom-select m-0 w-auto bd-highlight mr-auto" id="Tipo">
+        <option value="1" selected>Protesis </option>
+        <option value="2">Ortesis </option>
+    </select>
+
+    <div class="md-form mt-2 mb-0 bd-highlight">
+        <div class="inner-addon right-addon jus">
+            <i class="fas fa-search grey-text"></i>
+            <input type="text" id="txtBuscar" placeholder="Buscar por Nombre" class="w-auto mr-0 d-block" name="name" value="" />
+        </div>
+    </div>
+    <br />
+</div>
 
 
 <div class="container">
@@ -39,5 +55,5 @@
         <h4 class="d-flex justify-content-center text-muted">Cargando Categorias</h4>
         <!--Con JavaScript se cargara el catalogo-->
     </div>
-   <img src="~/Content/img/promo1.jpeg" alt="Promocion1" class="w-100" />
+    <img src="~/Content/img/promo1.jpeg" alt="Promocion1" class="w-100" />
 </div>

@@ -1,0 +1,37 @@
+﻿@model usuario
+@{
+    ViewBag.Title = "_ParcialViewMenu";
+}
+@if (Model.tipoUsuario == 0)
+{
+
+    <a class="text-dark" data-toggle="modal" data-target="#modalLoginForm"><span class="mr-3"> <i class="fas fa-sign-in-alt"></i>Entrar</span></a>
+    <a class="text-dark" data-toggle="modal" data-target="#modalRegisterForm"><span><i class="fas fa-user-plus"></i> Registrarse</span> </a>
+}
+@if (Model.tipoUsuario == 2)
+{
+    <!-- Menu Medicos -->
+    <div class="dropdown">
+        <button type="button" class="btn btn-white shadow-none text-lowercase dropdown-toggle p-3 m-0" data-toggle="dropdown">Hola @Model.nombres </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="Administracion/Catalogo.html"><i class="fas fa-chart-pie"></i> Mis horarios</a>
+            <a class="dropdown-item" href="Administracion/Catalogo.html"><i class="fas fa-calendar-alt"></i> Mis citas</a>
+            <hr>
+            <a class="dropdown-item p-2" href="Cuenta.html"><i class="fas fa-user-circle"></i> Cuenta</a>
+            <a onclick="CerrarSesion()" class="dropdown-item p-2"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+        </div>
+    </div>
+}
+@if (Model.tipoUsuario == 3)
+{
+    <!-- Menu Paciente-->
+    <div class="dropdown">
+        <button type="button" class="btn btn-white shadow-none text-lowercase dropdown-toggle p-3 m-0" data-toggle="dropdown">Hola @Model.nombres </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="Administracion/Catalogo.html"><i class="fas fa-calendar-alt"></i> Mis citas</a>
+            <hr>
+            <a class="dropdown-item p-2" href="Cuenta.html"><i class="fas fa-user-circle"></i> Cuenta</a>
+            <a onclick="CerrarSesion()" class="dropdown-item p-2"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+        </div>
+    </div>
+}

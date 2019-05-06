@@ -1,50 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="OrtopediaVelásquezModelStoreContainer" CdmEntityContainer="OrtopediaVelásquezEntities">
-    <EntitySetMapping Name="administradores">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.administradores">
-        <MappingFragment StoreEntitySet="administradores">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idMedico" ColumnName="idMedico" />
-          <ScalarProperty Name="usuario" ColumnName="usuario" />
-          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
-          <ScalarProperty Name="idsu" ColumnName="idsu" />
-          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="consulta">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.consulta">
-        <MappingFragment StoreEntitySet="consulta">
+    <EntitySetMapping Name="cita">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.cita">
+        <MappingFragment StoreEntitySet="cita">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="idHorario" ColumnName="idHorario" />
           <ScalarProperty Name="idPaciente" ColumnName="idPaciente" />
+          <ScalarProperty Name="idMedico" ColumnName="idMedico" />
+          <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalle_cita">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.detalle_cita">
+        <MappingFragment StoreEntitySet="detalle_cita">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCita" ColumnName="idCita" />
           <ScalarProperty Name="idProtesis" ColumnName="idProtesis" />
           <ScalarProperty Name="idOrtesis" ColumnName="idOrtesis" />
-          <ScalarProperty Name="idMedico" ColumnName="idMedico" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="horarios">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.horarios">
-        <MappingFragment StoreEntitySet="horarios">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="horai" ColumnName="horai" />
-          <ScalarProperty Name="horaf" ColumnName="horaf" />
+    <EntitySetMapping Name="Dias">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.Dias">
+        <MappingFragment StoreEntitySet="Dias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="medico">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.medico">
-        <MappingFragment StoreEntitySet="medico">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombres" ColumnName="nombres" />
-          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-          <ScalarProperty Name="experiencia" ColumnName="experiencia" />
-          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
-          <ScalarProperty Name="userName" ColumnName="userName" />
+    <EntitySetMapping Name="Horarios">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.Horarios">
+        <MappingFragment StoreEntitySet="Horarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Ortopeda" ColumnName="Ortopeda" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,21 +55,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="paciente">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.paciente">
-        <MappingFragment StoreEntitySet="paciente">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombres" ColumnName="nombres" />
-          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="codigoPaciente" ColumnName="codigoPaciente" />
-          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
-          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
-          <ScalarProperty Name="edad" ColumnName="edad" />
-          <ScalarProperty Name="alergias" ColumnName="alergias" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="protesis">
       <EntityTypeMapping TypeName="OrtopediaVelásquezModel.protesis">
         <MappingFragment StoreEntitySet="protesis">
@@ -89,19 +68,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sexo">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.sexo">
-        <MappingFragment StoreEntitySet="sexo">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="sexo1" ColumnName="sexo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="su">
-      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.su">
-        <MappingFragment StoreEntitySet="su">
-          <ScalarProperty Name="su1" ColumnName="su" />
-          <ScalarProperty Name="clave" ColumnName="clave" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,6 +84,7 @@
         <MappingFragment StoreEntitySet="tipoOrtesis">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -119,7 +94,33 @@
         <MappingFragment StoreEntitySet="tipoProtesis">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuario">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipoUsuario1" ColumnName="tipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="OrtopediaVelásquezModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="alergias" ColumnName="alergias" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="experiencia" ColumnName="experiencia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

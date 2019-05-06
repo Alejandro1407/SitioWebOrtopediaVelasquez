@@ -12,20 +12,12 @@ namespace SitioWebOrtopediaVelásquez
     using System;
     using System.Collections.Generic;
     
-    public partial class Horarios
+    public partial class sysdiagrams
     {
-        public Horarios()
-        {
-            this.cita = new HashSet<cita>();
-        }
-    
-        public int Id { get; set; }
-        public Nullable<int> Dia { get; set; }
-        public Nullable<int> Ortopeda { get; set; }
-        public Nullable<System.TimeSpan> Hora { get; set; }
-    
-        public virtual ICollection<cita> cita { get; set; }
-        public virtual Dias Dias { get; set; }
-        public virtual usuario usuario { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

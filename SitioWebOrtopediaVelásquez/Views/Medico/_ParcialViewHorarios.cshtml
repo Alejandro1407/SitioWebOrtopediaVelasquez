@@ -1,0 +1,33 @@
+﻿@model List<Horarios>
+
+@if (Model == null)
+{
+    <br />
+    <img src="~/Content/img/Error.png" class="ml-auto mr-auto d-block" /><br />
+    <h4 class="d-flex justify-content-center text-muted">¡Oh No, Hubo un error al cargar los datos!</h4>
+    <br /><br /><br />
+    return;
+}
+@if (Model.Count == 0)
+{
+    <br />
+    <img src="~/Content/img/Empty.png" class="ml-auto mr-auto d-block" /><br />
+    <h4 class="d-flex justify-content-center text-muted">¡Oh No, No hay ningun Horario!</h4>
+    <br /><br /><br />
+    return;
+}
+<div class="container mt-5 ml-auto mr-auto row d-flex justify-content-center">
+@foreach (Horarios x in Model)
+    {
+        <div class="col-lg-4 text-white  col-md-4 mb-4">
+            <div class="card text-white bg-success">
+                <div class="card-header">Dia: @x.Dias.Dia</div>
+                <div class="card-body">
+                    <h5 class="card-title">Hora: @x.Hora </h5>
+                    <p class="card-text"><h1><c:out value="5" /></h1></p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

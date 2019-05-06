@@ -17,13 +17,16 @@ namespace SitioWebOrtopediaVelásquez.Controllers
         {
             return View();
         }
-      public PartialViewResult MostrarCategorias()
+      public PartialViewResult MostrarTipoOrtesis(String Parametro = "")
         {
-           // List<Categoria> Model = await servicio_productos.ObtenerCategoriasAsync();
-            return PartialView("_ParcialViewIndex");
+            List<tipoOrtesis> Model = catalogoServicio.ObtenerTiposOrtesisAsync(Parametro);
+            return PartialView("_ParcialViewIndexTipoOrtesis",Model);
         }
-      
-      
+        public PartialViewResult MostrarTipoProtesis(String Parametro = "")
+        {
+            List<tipoProtesis> Model = catalogoServicio.ObtenerTiposProtesisAsync(Parametro);
+            return PartialView("_ParcialViewIndexTipoProtesis", Model);
+        }
         public ActionResult Catalogo()
         {
             //var model = await servicio_productos.ObtenerCategoriasAsync();
@@ -35,6 +38,13 @@ namespace SitioWebOrtopediaVelásquez.Controllers
             ViewBag.IsSearch = IsSearch;
             List<protesis> Model =  catalogoServicio.ObtenerProtesisAsync(Parametro);
             return PartialView("_ParcialViewCatalogoP", Model);
+        }
+        public PartialViewResult Menu(String Nombre = "", String Email = "", int TipoUsuario = 0) {
+            usuario u = new usuario();
+            u.nombres = Nombre;
+            u.email = Email;
+            u.tipoUsuario = TipoUsuario;
+            return PartialView("_ParcialViewMenu",u);
         }
 
         public PartialViewResult MostrarDatosOrtesis(string Parametro = "", bool IsSearch = false)
@@ -51,15 +61,16 @@ namespace SitioWebOrtopediaVelásquez.Controllers
         }
         
         [HttpPost]
-        public bool RegistrarUsuario(string email, string contrasena, string usuario, string apellidos,int genero,int edad,string alergias)
+        public bool RegistrarUsuario(string email, string contrasena, string usuario, string apellidos,string genero,DateTime edad,string alergias)
         {
-            paciente p = new paciente();
+            usuario p = new usuario();
             p.email = email;
             p.nombres = usuario;
             p.apellidos = apellidos;
             p.contrasenya = contrasena;
-            p.idSexo = genero;
-            p.edad = edad;
+            p.sexo = genero;
+            p.tipoUsuario = 3;
+            p.fechaNacimiento = edad;
             p.alergias = alergias;
             return sesionServicio.RegistarPaciente(p);
         }

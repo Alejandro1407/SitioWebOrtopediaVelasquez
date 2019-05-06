@@ -16,7 +16,7 @@ namespace SitioWebOrtopediaVelásquez
     {
         public protesis()
         {
-            this.consulta = new HashSet<consulta>();
+            this.detalle_cita = new HashSet<detalle_cita>();
         }
     
         public int id { get; set; }
@@ -27,7 +27,7 @@ namespace SitioWebOrtopediaVelásquez
         public byte[] foto { get; set; }
         public Nullable<decimal> precio { get; set; }
     
-        public virtual ICollection<consulta> consulta { get; set; }
+        public virtual ICollection<detalle_cita> detalle_cita { get; set; }
         public virtual tipoProtesis tipoProtesis { get; set; }
     }
 }

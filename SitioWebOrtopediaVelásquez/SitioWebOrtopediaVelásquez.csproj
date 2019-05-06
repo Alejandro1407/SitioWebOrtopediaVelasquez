@@ -100,6 +100,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\mdb.css" />
     <Content Include="Content\css\Style_Catalogo.css" />
+    <Content Include="Content\css\Style_Horarios.css" />
     <Content Include="Content\css\Style_Home.css" />
     <Content Include="Content\css\Style_Index.css" />
     <Content Include="Content\img\Audio.jpeg" />
@@ -122,8 +123,8 @@
     <Content Include="Global.asax" />
     <Content Include="OrtopediaVelásquez.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OrtopediaVelásquez.Context.cs</LastGenOutput>
       <DependentUpon>OrtopediaVelásquez.edmx</DependentUpon>
+      <LastGenOutput>OrtopediaVelásquez.Context.cs</LastGenOutput>
     </Content>
     <Content Include="OrtopediaVelásquez.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -132,10 +133,11 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\mdb.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\ScriptCatalogo.js" />
+    <Content Include="Scripts\ScriptHorarios.js" />
     <Content Include="Scripts\ScriptHome.js" />
     <Content Include="Scripts\Script_Index.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
@@ -146,21 +148,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="administradores.cs">
-      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="consulta.cs">
+    <Compile Include="cita.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="detalle_cita.cs">
+      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dias.cs">
+      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="horarios.cs">
-      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
-    </Compile>
-    <Compile Include="medico.cs">
+    <Compile Include="Horarios.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
     <Compile Include="ortesis.cs">
@@ -181,25 +184,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrtopediaVelásquez.edmx</DependentUpon>
     </Compile>
-    <Compile Include="paciente.cs">
-      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="protesis.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
     <Compile Include="Servicios\CatalogoServicio.cs" />
     <Compile Include="Servicios\SesionServicio.cs" />
-    <Compile Include="sexo.cs">
-      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
-    </Compile>
-    <Compile Include="su.cs">
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
     <Compile Include="tipoOrtesis.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
     <Compile Include="tipoProtesis.cs">
+      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario.cs">
+      <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuario.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -236,7 +239,7 @@
     <Content Include="Views\Home\Catalogo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_ParcialViewCatalogoP.cshtml" />
-    <Content Include="Views\Home\_ParcialViewIndex.cshtml" />
+    <Content Include="Views\Home\_ParcialViewIndexTipoOrtesis.cshtml" />
     <Content Include="Views\Home\_ParcialViewModalO.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -246,6 +249,10 @@
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Views\Home\_ParcialViewCatalogoO.cshtml" />
     <Content Include="Views\Home\_ParcialViewModalP.cshtml" />
+    <Content Include="Views\Home\_ParcialViewMenu.cshtml" />
+    <Content Include="Views\Home\_ParcialViewIndexTipoProtesis.cshtml" />
+    <Content Include="Views\Medico\Horarios.cshtml" />
+    <Content Include="Views\Medico\_ParcialViewHorarios.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

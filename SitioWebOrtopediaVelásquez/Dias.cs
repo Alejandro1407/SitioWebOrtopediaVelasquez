@@ -12,16 +12,16 @@ namespace SitioWebOrtopediaVelásquez
     using System;
     using System.Collections.Generic;
     
-    public partial class su
+    public partial class Dias
     {
-        public su()
+        public Dias()
         {
-            this.administradores = new HashSet<administradores>();
+            this.Horarios = new HashSet<Horarios>();
         }
     
-        public string su1 { get; set; }
-        public string clave { get; set; }
+        public int Id { get; set; }
+        public string Dia { get; set; }
     
-        public virtual ICollection<administradores> administradores { get; set; }
+        public virtual ICollection<Horarios> Horarios { get; set; }
     }
 }

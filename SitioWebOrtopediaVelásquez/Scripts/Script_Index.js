@@ -162,84 +162,36 @@ function CerrarSesion() {
     localStorage.removeItem("IsAdmin");
     localStorage.removeItem("Email");
     localStorage.removeItem("Registro");
+    localStorage.removeItem("TipoUsuario");
     location.reload();
 }
 function PrintMenu(){
-    Sesion_Iniciated= sessionStorage.getItem("Sesion");
-    if(Sesion_Iniciated === null){
-        var ShowOutAlert = localStorage.getItem("ShowOutAlert");
-        if(ShowOutAlert !== null){
-            localStorage.removeItem("ShowOutAlert");
-                toastr.error("Sesion Finalizada",'Cuenta',{
-                "progressBar":true,
-                "closeButton": true
-            });
-        }
-        menu = '<a class="text-dark" data-toggle="modal" data-target="#modalLoginForm"><span class="mr-3"> <i class="fas fa-sign-in-alt"></i>Entrar</span></a>';
-        menu += '<a class="text-dark" data-toggle="modal" data-target="#modalRegisterForm"><span><i class="fas fa-user-plus"></i> Registrarse</span> </a>';
-        menu += '<button class="btn btn-white p-0 m-0 shadow-none" data-target="#CartDrop" data-toggle="dropdown"><i class="fas fa-2x fa-shopping-cart"></i><span class="badge badge-dark" id="Carrito_Conta">0</span></button>';
-        document.getElementById("Sesion").innerHTML =  menu;
-        return;
-    }
-        var ShowAlert = localStorage.getItem("ShowAlert","0");
-        if(ShowAlert !== null){
-            localStorage.removeItem("ShowAlert");
-                toastr.success("Bienvenido " + Sesion_Iniciated,'Login',{
-                "progressBar":true,
-                "closeButton": true
-            });
-        }
-        menu = '<div class="dropdown">';
-        menu += '<button type="button" class="btn btn-white shadow-none text-lowercase dropdown-toggle p-3 m-0" data-toggle="dropdown">Hola, ' +Sesion_Iniciated+'</button>';
-        menu += '<div class="dropdown-menu">';
-        if(localStorage.getItem("IsAdmin") !== null){
-         
-            menu += '<a class="dropdown-item" href="Administracion/Catalogo.html"><i class="fas fa-chart-pie"></i> Panel de Administrador</a>';
-            menu += '<a class="dropdown-item" href="Administracion/Catalogo.html"><i class="fas fa-envelope"></i>  Correo </a>';
-            menu += '<a class="dropdown-item" href="Administracion/Administradores.html"><i class="far fa-address-card"></i>  Administradores </a>';
-            menu += '<hr>';
-        }
-        menu += '<a class="dropdown-item p-2" href="Cuenta.html"><i class="fas fa-user-circle"></i> Cuenta</a>';
-        menu += '<a onclick="CerrarSesion()" class="dropdown-item p-2"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>';
-        menu += '</div>';
-        menu += '</div>';
-        menu += '<button class="btn btn-white p-0 m-0 shadow-none" data-target="#CartDrop" data-toggle="dropdown"><i class="fas fa-2x fa-shopping-cart"></i><span class="badge badge-dark" id="Carrito_Conta">0</span></button>';
-        
-        $('#Sesion').html(menu);
+    Sesion_Iniciated = sessionStorage.getItem("Sesion");
+    let tipoUsuario = localStorage.getItem("TipoUsuario");
+    let nombre = sessionStorage.getItem("Sesion");
+    let email = localStorage.getItem("Email");
+    console.log(tipoUsuario + nombre + email);
+    $('#Sesion').load('/Home/Menu', { Nombre : nombre, Email: email, TipoUsuario : tipoUsuario });
 }
 function  CheckLogInEmail(Isfocusout) {
     var Check_Email = /^(\w){5,}(@){1}(\w){1,}(\.{1}(\w){2,}){1,}$/g;
     var Email = $('#LogInFormEmail').val();
     var Check = Check_Email.test(Email);
     if(Check === true){ //Debe ser igualada o genera Bug 
-        $.ajax({
-            type:'POST',
-            url:'/Home/CheckEmail',
-            data:{'email':Email},
-            success: function (answer) {
-                if(answer ===  "False"){
-                    $('#LogInFormEmailInValid').addClass("d-none");
-                    $('#LogInFormEmailValid').removeClass("d-none");
-                    $('#LogInFormPassword').removeAttr("disabled","disabled");
-                            Valid_Email = 1;
-                            if(Valid_Email === 1 && Valid_Pass === 1){
-                                $('#LogInFormBtn').removeAttr("disabled","disabled");
-                            }else{
-                                $('#LogInFormBtn').attr("disabled","disabled");
-                            }
+        $('#LogInFormEmailInValid').addClass("d-none");
+        $('#LogInFormEmailValid').removeClass("d-none");
+        $('#LogInFormPassword').removeAttr("disabled", "disabled");
+        Valid_Email = 1;
+            if(Valid_Email === 1 && Valid_Pass === 1){
+                    $('#LogInFormBtn').removeAttr("disabled","disabled");
                 }else{
-                    $('#LogInFormPassword').attr("disabled","disabled");
-                    Valid_Email = 0;
-                    $('#LogInFormEmailValid').addClass("d-none");
-                    $('#LogInFormEmailInValid').removeClass("d-none");
+                    $('#LogInFormBtn').attr("disabled","disabled");
                 }
-            }//Success
-        })//Ajax
-    }else{ //Si el Email no es Valido
+    }else{
+
         Valid_Email = 0;
-        $('#LogInFormPassword').attr("disabled","disabled");
         $('#LogInFormEmailValid').addClass("d-none");
-         if(Isfocusout === 1){
+        if (Isfocusout === 1) {
             $('#LogInFormEmailInValid').removeClass("d-none");
         }
     }
@@ -247,6 +199,13 @@ function  CheckLogInEmail(Isfocusout) {
 function CheckLogInPassword(Isfocusout) {
     var Check_PassWord = /^[A-Z]{1}((\w){1,})*(\d)$/;
     var password = $('#LogInFormPassword').val();
+    if (password.length < 7) {
+        if (Isfocusout === 1) {
+            $('#RegisterFormPassValid').addClass("d-none");
+            $('#RegisterFormPassInValid').removeClass("d-none");
+        }
+        return;
+    }
     var Check = Check_PassWord.test(password);
     if (Check === true) { //Debe ser igualada o genera Bug
             $('#LogInFormPassInValid').addClass("d-none");
@@ -281,8 +240,10 @@ function FormLogIn() {
             if (answer.ValidData === true) {
                 localStorage.setItem("ShowAlert", "1");
                 setTimeout(function () {
-                    sessionStorage.setItem("Sesion", answer.Nombre);
+                    sessionStorage.setItem("Sesion", answer.Nombre );
                     localStorage.setItem("Email", Email);
+                    localStorage.setItem("Id", answer.id);
+                    localStorage.setItem("TipoUsuario", answer.TipoUsuario);
                     //localStorage.setItem("Registro",answer.Registro);
                     document.getElementById('m-footer-login').innerHTML = '<i class="fa fa-check fa-4x mb-3 FormValid animated rotateIn"></i>';
                     setTimeout(function () { location.reload(); }, 1000);
@@ -378,6 +339,14 @@ function CheckRegisterEmail(Isfocusout){
 function CheckRegisterPass(Isfocusout){
     var Check_PassWord = /^[A-Z]{1}((\w){1,})*(\d{1,})$/g;
     var password = $('#RegisterFormPass').val();
+
+    if (password.length < 7) {
+        if (Isfocusout === 1) {
+            $('#RegisterFormPassValid').addClass("d-none");
+            $('#RegisterFormPassInValid').removeClass("d-none");
+        }
+        return;
+    }
     var Check = Check_PassWord.test(password);
     if(Check === true){ //Debe ser igualada o genera Bug 
         RegisterValidContraseña = 1;
@@ -404,7 +373,7 @@ function Registro() {
     var Email = $('#RegisterFormEmail').val();
     var Contraseña = $('#RegisterFormPass').val();
     var Genero = $('#RegisterFormGenero').val();
-    var Edad = $('#RegisterFormGenero').val();
+    var Edad = $('#RegisterFormEdad').val();
     
        $.ajax({
         type:"POST", //Tipo de peticion
