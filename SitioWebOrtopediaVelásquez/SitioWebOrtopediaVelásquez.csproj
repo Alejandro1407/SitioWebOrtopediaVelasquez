@@ -257,6 +257,7 @@
     <Content Include="Views\Medico\Horarios.cshtml" />
     <Content Include="Views\Medico\_ParcialViewHorarios.cshtml" />
     <Content Include="Views\Paciente\Citas.cshtml" />
+    <Content Include="Views\Paciente\_ParcialViewCitas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

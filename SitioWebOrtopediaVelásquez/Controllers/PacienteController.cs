@@ -13,5 +13,8 @@ namespace SitioWebOrtopediaVelásquez.Controllers
         {
             return View();
         }
+        public PartialViewResult MostrarCitas() {
+            return PartialView("_ParcialViewCitas");
+        }
     }
 }
