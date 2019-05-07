@@ -43,7 +43,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Dia" Type="Int32" />
     <Property Name="Ortopeda" Type="Int32" />
-    <Property Name="Hora" Type="Time" Precision="7" />
+    <Property Name="Hora" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cita" Relationship="Self.FK__cita__idHorario__5070F446" FromRole="Horarios" ToRole="cita" />
     <NavigationProperty Name="Dias" Relationship="Self.FK__Horarios__Dia__412EB0B6" FromRole="Horarios" ToRole="Dias" />
     <NavigationProperty Name="usuario" Relationship="Self.FK__Horarios__Ortope__4222D4EF" FromRole="Horarios" ToRole="usuario" />

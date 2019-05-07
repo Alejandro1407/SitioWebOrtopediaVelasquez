@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ff82705e4fca4df28ca8100dd64b04b1" Name="Diagram1">
+      <Diagram DiagramId="309f3ea2e60b400092d7b047636c612f" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="OrtopediaVelásquezModel.cita" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OrtopediaVelásquezModel.detalle_cita" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OrtopediaVelásquezModel.Dias" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />

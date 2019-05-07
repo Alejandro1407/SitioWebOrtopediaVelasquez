@@ -145,6 +145,29 @@ namespace SitioWebOrtopediaVelásquez.Servicios
             {
                 return null;
             }
+        }//ObtenerHorariosAsync
+
+        public bool AgregarHorario(int id, int dia, string hora) {
+            try {
+                OrtopediaVelásquezEntities db = new OrtopediaVelásquezEntities();
+                Horarios h = (from horarios in db.Horarios
+                              where horarios.Dia.Value.Equals(dia) && horarios.Hora.Equals(hora)
+                              select horarios).FirstOrDefault();
+                if (h != null) {
+                    return false;
+                }
+                h = new Horarios();
+                h.Ortopeda = id;
+                h.Dia = dia;
+                h.Hora = hora;
+                db.Horarios.Add(h);
+                db.SaveChanges();
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
         }
+        
+
     }//Clase
 }//NameSpace

@@ -19,11 +19,11 @@
 <div class="container mt-5 ml-auto mr-auto row d-flex justify-content-center">
 @foreach (Horarios x in Model)
     {
-        <div class="col-lg-4 text-white  col-md-4 mb-4">
+        <div class="col-lg-3 text-white  col-md-3 col-sm-12 mb-4">
             <div class="card text-white bg-success">
-                <div class="card-header">Dia: @x.Dias.Dia</div>
+                <div class="card-header text-center">Dia: @x.Dias.Dia</div>
                 <div class="card-body">
-                    <h5 class="card-title">Hora: @x.Hora </h5>
+                    <h5 class="card-title text-center">Hora: @x.Hora </h5>
                     <p class="card-text"><h1><c:out value="5" /></h1></p>
                 </div>
             </div>

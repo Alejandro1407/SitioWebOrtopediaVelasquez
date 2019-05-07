@@ -227,6 +227,7 @@ function CheckLogInPassword(Isfocusout) {
   }
 }
 function FormLogIn() {
+    $('#Error').removeClass("d-block");
     var Email = Email = $('#LogInFormEmail').val();
     var password = $('#LogInFormPassword').val();
     $('#m-footer-login').html('<img src="/Content/img/Loading.gif">');
@@ -240,7 +241,7 @@ function FormLogIn() {
             if (answer.ValidData === true) {
                 localStorage.setItem("ShowAlert", "1");
                 setTimeout(function () {
-                    sessionStorage.setItem("Sesion", answer.Nombre );
+                    sessionStorage.setItem("Sesion", answer.Nombre);
                     localStorage.setItem("Email", Email);
                     localStorage.setItem("Id", answer.id);
                     localStorage.setItem("TipoUsuario", answer.TipoUsuario);
@@ -248,6 +249,9 @@ function FormLogIn() {
                     document.getElementById('m-footer-login').innerHTML = '<i class="fa fa-check fa-4x mb-3 FormValid animated rotateIn"></i>';
                     setTimeout(function () { location.reload(); }, 1000);
                 }, 1000);
+            } else {
+                $('#Error').addClass("d-block");
+                $('#m-footer-login').html('<button class="btn btn-indigo" id="LogInFormBtn" disabled><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</button>');
             }
         }
     });

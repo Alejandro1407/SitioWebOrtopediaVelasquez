@@ -35,7 +35,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Dia" Type="int" />
     <Property Name="Ortopeda" Type="int" />
-    <Property Name="Hora" Type="time" Precision="7" />
+    <Property Name="Hora" Type="varchar" MaxLength="6" />
   </EntityType>
   <EntityType Name="ortesis">
     <Key>

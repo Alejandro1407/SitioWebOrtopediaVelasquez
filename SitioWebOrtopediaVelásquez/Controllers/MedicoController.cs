@@ -25,6 +25,11 @@ namespace SitioWebOrtopediaVelásquez.Controllers
             }
 
             return PartialView("_ParcialViewHorarios",h);
+        }//MostrarHorarios
+
+        [HttpPost]
+        public bool AgregarHorario(int Id,int Dia,String Hora) {
+            return catalogoServicio.AgregarHorario(Id,Dia,Hora);
         }
     }
 }

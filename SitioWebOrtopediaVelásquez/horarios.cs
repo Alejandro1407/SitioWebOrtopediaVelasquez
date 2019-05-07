@@ -22,7 +22,7 @@ namespace SitioWebOrtopediaVelásquez
         public int Id { get; set; }
         public Nullable<int> Dia { get; set; }
         public Nullable<int> Ortopeda { get; set; }
-        public Nullable<System.TimeSpan> Hora { get; set; }
+        public string Hora { get; set; }
     
         public virtual ICollection<cita> cita { get; set; }
         public virtual Dias Dias { get; set; }

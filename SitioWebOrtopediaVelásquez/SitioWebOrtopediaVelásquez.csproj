@@ -100,6 +100,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\mdb.css" />
     <Content Include="Content\css\Style_Catalogo.css" />
+    <Content Include="Content\css\Style_Citas.css" />
     <Content Include="Content\css\Style_Horarios.css" />
     <Content Include="Content\css\Style_Home.css" />
     <Content Include="Content\css\Style_Index.css" />
@@ -137,6 +138,7 @@
     <Content Include="Scripts\mdb.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\ScriptCatalogo.js" />
+    <Content Include="Scripts\ScriptCitas.js" />
     <Content Include="Scripts\ScriptHorarios.js" />
     <Content Include="Scripts\ScriptHome.js" />
     <Content Include="Scripts\Script_Index.js" />
@@ -154,6 +156,7 @@
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="detalle_cita.cs">
       <DependentUpon>OrtopediaVelásquez.tt</DependentUpon>
     </Compile>
@@ -253,6 +256,7 @@
     <Content Include="Views\Home\_ParcialViewIndexTipoProtesis.cshtml" />
     <Content Include="Views\Medico\Horarios.cshtml" />
     <Content Include="Views\Medico\_ParcialViewHorarios.cshtml" />
+    <Content Include="Views\Paciente\Citas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
